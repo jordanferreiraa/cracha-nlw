@@ -1,0 +1,78 @@
+/*Cascating Stylesheet*/
+* {
+  margin: 0;
+}
+html,
+body {
+  /*html, body: meu documento inteiro*/
+  --black: hsl(240, 6%, 13%);
+  --grey: hsl(240, 9%, 89%); /*é uma variável e irei utilizar ela mais vezes*/
+
+  height: 100%;
+  font-family: 'Roboto', sans-serif; /*ele vai procurar a fonte roboto, se ele não achar, irá usar um fonte sem serifa*/
+  -webkit-font-smoothing: antialiased; /*significa que a propriedade que vem depois de webkit, no caso font-smoothing, vai funcionar so nos servidores webkit(chrome, safari...)*/
+}
+body {
+  display: grid; /*utilizamos grid para funcionar o center. Ele trabalha em duas dimensões. Muito bom para trabalhar layouts*/
+  place-items: center;
+}
+main {
+  background: url(images/background.svg);
+  width: 375px;
+  height: 812px;
+}
+.container {
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  color: var(--grey); /*var() irá utilizar minha variável --grey*/
+}
+.avatar {
+  width: 10rem;
+  margin: 11.5rem auto 0;
+
+  position: relative; /*.avatar agora é o limite para o absolute de .avatar span*/
+}
+.avatar span {
+  position: absolute; /*permite que tenha niveis de empilhamento, uma fota em cima da outra, ta absoluto na página inteira*/
+  top: -15px;
+  z-index: 1; /*index na dimensão z*/
+}
+.avatar > img {
+  width: 10rem;
+  height: 11.5rem;
+  object-fit: cover; /*para voltar a proporção correta. cover: irá cobrir todo o espaço*/
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+h1 {
+  font-size: 1.5rem;
+
+  margin-top: 1.5rem;
+}
+a {
+  color: var(--grey);
+  text-decoration: none;
+
+  margin-top: 0.25rem;
+
+  display: flex; /*para alinhar*/
+  gap: 0.75rem;
+
+  justify-content: center; /*centralizar*/
+  align-items: center; /*garantir q existe um eixo x e q está alinhado*/
+}
+p {
+  margin-top: 2rem;
+}
+ul {
+  /*caixas de redes sociais*/
+  margin-top: 4rem;
+  list-style: none; /*tirar as bolinhas*/
+  padding: 0;
+
+  display: flex; /*os elementor irão ficar um ao lado do outro noo eixo x. flex liberou o gap e o justify-content, muito semelhante ao grid*/
+  gap: 0.5rem; /*espaço entre eles*/
+  justify-content: center; /*alinhamento central por causa do flex*/
+}
